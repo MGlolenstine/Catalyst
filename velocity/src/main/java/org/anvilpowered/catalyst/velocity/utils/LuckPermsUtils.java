@@ -27,7 +27,7 @@ import net.luckperms.api.model.user.User;
 import net.luckperms.api.query.QueryOptions;
 import org.anvilpowered.anvil.api.data.registry.Registry;
 import org.anvilpowered.anvil.api.plugin.Plugin;
-import org.anvilpowered.catalyst.velocity.plugin.Catalyst;
+import org.anvilpowered.catalyst.velocity.plugin.CatalystVelocity;
 import org.slf4j.Logger;
 
 import java.util.HashMap;
@@ -69,7 +69,7 @@ public class LuckPermsUtils {
 
     public void addPlayerToCache(Player player) {
         UUID playerUUID = player.getUniqueId();
-        User temp = Catalyst.api.getUserManager().getUser(playerUUID);
+        User temp = CatalystVelocity.api.getUserManager().getUser(playerUUID);
         if (temp != null) {
             if (cachedPlayers.containsKey(playerUUID)) {
                 if (temp.getCachedData().getMetaData(getQueryOptions(temp)) != cachedPlayers.get(playerUUID)) {
@@ -114,7 +114,7 @@ public class LuckPermsUtils {
     }
 
     private QueryOptions getQueryOptions(User user) {
-        final ContextManager contextManager = Catalyst.api.getContextManager();
+        final ContextManager contextManager = CatalystVelocity.api.getContextManager();
         return contextManager.getQueryOptions(user)
             .orElseGet(contextManager::getStaticQueryOptions);
     }

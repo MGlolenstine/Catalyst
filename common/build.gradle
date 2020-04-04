@@ -18,6 +18,7 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
     implementation 'org.spongepowered:configurate-hocon:3.6'
     implementation 'org.spongepowered:configurate-core:3.6'
+    implementation 'net.luckperms:api:5.0'
 
     implementation project(':api')
     implementation anvil_api
@@ -25,12 +26,11 @@ dependencies {
     implementation anvil_base
 
     implementation guice
-    implementation jda
     implementation jsondb
+    implementation luckperms
     implementation mongodb_driver_sync
     implementation mongo_java_driver
     implementation morphia
-    implementation unirest
     implementation xodus
     implementation xodus_entity_store
 }
